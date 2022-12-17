@@ -1,0 +1,26 @@
+@mixin text($fontSize, $lineHeight, $fontWeight) {
+  font-family: Raleway, sans-serif;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  font-weight: $fontWeight;
+}
+
+@mixin container() {
+  width: 70%;
+  margin: 0 auto;
+  height: 100%;
+}
+
+@mixin flex ($direction, $justifyContent, $alignItems, $wrap) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+  flex-wrap: $wrap;
+}
+
+@mixin bgSettings() {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
