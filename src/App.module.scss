@@ -1,38 +1,98 @@
-.App {
-  text-align: center;
-}
+@import './common/style/sass/mixins';
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.appContainer {
+  height: 100vh;
+  background-image: url("./assets/img/backGroundImage.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .letterContainer {
+    height: 100%;
+    @include flex(column, center, center, wrap);
+
+    .letter {
+      width: 700px;
+      height: 500px;
+      border: 1px solid #4b4b4b;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 10px;
+      @include flex(column, center, center, wrap);
+
+
+      .lang {
+        @include flex(column, flex-start, flex-start, wrap);
+        @include text(24, 2.5, 600);
+
+        .eng, .rus {
+          font-weight: 500;
+        }
+      }
+
+      .behavior {
+        height: 100%;
+        @include flex(column, center, flex-start, wrap);
+        @include text(24, 2.5, 600);
+
+        .answer {
+          font-weight: 500;
+        }
+
+      }
+
+      .form {
+        height: 90%;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .underTree {
+          @include flex(row, center, center, wrap);
+          margin: 3px;
+        }
+      }
+
+      .finalText {
+        padding: 40px;
+        @include flex(column, center, flex-start, wrap);
+        //background-color: red;
+        @include text(24, 2.5, 400);
+
+      }
+    }
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+.input {
+  width: 300px;
+  height: 20px;
+  margin: 10px 0;
+  padding: 5px 10px;
+  border: 0px solid black;
+  border-radius: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.textArea {
+  width: 300px;
+  height: 130px;
+  margin: 10px 0;
+  padding: 5px 10px;
+  border: 0px solid black;
+  border-radius: 10px;
+  resize: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button {
+  width: 320px;
+  height: 30px;
+  border: 0px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }

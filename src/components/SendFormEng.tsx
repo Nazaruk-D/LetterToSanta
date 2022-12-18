@@ -1,6 +1,7 @@
 import React from 'react';
 import s from "../App.module.scss";
 import {setIn, useFormik} from "formik";
+import {useNavigate} from "react-router-dom";
 
 export type FormType = {
     name: string
@@ -10,12 +11,21 @@ export type FormType = {
     text: string
 }
 
-type SendFormType = {
-    setStatus: () => void
-    setInfo: (obj: FormType) => void
+export type FormikErrorType = {
+    name?: string
+    email?: string
+    age?: string
+    underTree?: string
+    text?: string
 }
 
-const SendForm: React.FC<SendFormType> = ({setStatus, setInfo}) => {
+type SendFormType = {
+    setInfo: (info: FormType) => void
+}
+
+const SendFormEng: React.FC<SendFormType> = ({setInfo}) => {
+
+    const navigate = useNavigate()
 
     const formik = useFormik({
         initialValues: {
@@ -25,74 +35,89 @@ const SendForm: React.FC<SendFormType> = ({setStatus, setInfo}) => {
             underTree: '',
             text: '',
         },
+        validate: (values) => {
+            const errors: FormikErrorType = {}
+            if (!values.email) {
+                errors.email = 'Email required'
+            } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+                errors.email = 'Invalid email address'
+            }
+
+            if (!values.name) {
+                errors.name = 'Name required'
+            } else if (values.name.length < 4) {
+                errors.name = "Name must be min 4 characters long.";
+            }
+
+            if (!/^[0-9]/i.test(values.age)) {
+                errors.age = 'Age can only be numbers'
+            }
+
+            if (values.text.length < 0) {
+                errors.text = 'Write your message'
+            } else if (values.text.length > 200) {
+                errors.text = 'Wish allowed up to 200 characters'
+            }
+
+
+            return errors
+        },
         onSubmit: values => {
-            // alert(JSON.stringify(values, null, 2));
-            console.log(values)
             setInfo(values)
-            setStatus()
+            navigate('/eng/letter/send')
         },
     });
+
+
 
     return (
         <form onSubmit={formik.handleSubmit} className={s.form}>
             <div>
                 <input
-                    id="name"
-                    name="name"
-                    type="name"
                     placeholder="Your name"
                     className={s.input}
-                    onChange={formik.handleChange}
-                    value={formik.values.name}
+                    {...formik.getFieldProps('name')}
                 />
             </div>
-
+            { formik.touched.name && formik.errors.name && <div style={{color:"red"}}>{formik.errors.name}</div>}
             <div>
                 <input
-                    id="email"
-                    name="email"
-                    type="email"
                     placeholder="Your email"
                     className={s.input}
-                    onChange={formik.handleChange}
-                    value={formik.values.email}
+                    {...formik.getFieldProps('email')}
                 />
             </div>
-
+            { formik.touched.email && formik.errors.email && <div style={{color:"red"}}>{formik.errors.email}</div>}
             <div>
                 <input
-                    id="age"
-                    name="age"
-                    type="age"
                     placeholder="Your age"
                     className={s.input}
-                    onChange={formik.handleChange}
-                    value={formik.values.age}
+                    {...formik.getFieldProps('age')}
                 />
             </div>
-
+            { formik.touched.age && formik.errors.age && <div style={{color:"red"}}>{formik.errors.age}</div>}
             <div>
                 <span>Put a present under the Christmas tree?</span>
                 <div className={s.underTree}>
-                    <span><input type="radio" name="underTree" onChange={formik.handleChange} value={"yes"}/> yes </span>
+                    <span><input type="radio"  name="underTree" onChange={formik.handleChange} value={"yes"} checked/> yes </span>
                     <span><input type="radio" name="underTree" onChange={formik.handleChange} value={"no"}/> no </span>
                 </div>
             </div>
 
             <textarea
-                id="text"
-                name="text"
+                id={'text'}
                 placeholder="What gift do you want?"
+                autoComplete={"on"}
                 className={s.textArea}
-                onChange={formik.handleChange}
-                value={formik.values.text}
+                {...formik.getFieldProps('text')}
             />
-
-            <button type="submit" className={s.button}
-                    // onClick={setIsGood}
-            >Submit</button>
+            {formik.touched.text && formik.errors.text && <div style={{color:"red"}}>{formik.errors.text}</div>}
+            {formik.touched.name && formik.touched.email && formik.touched.age &&
+                !formik.errors.name && !formik.errors.email && !formik.errors.age &&
+                <button type="submit" className={s.button}>Submit</button>
+            }
         </form>
     );
 };
 
-export default SendForm;
+export default SendFormEng;
