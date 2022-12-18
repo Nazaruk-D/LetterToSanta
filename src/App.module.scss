@@ -1,5 +1,7 @@
 @import './common/style/sass/mixins';
 
+$mediaWidth: 1100px;
+
 .appContainer {
   height: 100vh;
   background-image: url("./assets/img/backGroundImage.jpg");
@@ -10,6 +12,7 @@
     height: 100%;
     @include flex(column, center, center, wrap);
 
+
     .letter {
       width: 700px;
       height: 500px;
@@ -17,11 +20,18 @@
       background-color: rgba(255, 255, 255, 0.7);
       border-radius: 10px;
       @include flex(column, center, center, wrap);
+      @media screen and (max-width: $mediaWidth) {
+        width: 80%;
+        @include text(14px, 14px, 400);
+      }
 
 
       .lang {
         @include flex(column, flex-start, flex-start, wrap);
         @include text(24, 2.5, 600);
+        @media screen and (max-width: $mediaWidth) {
+          padding: 20px;
+        }
 
         .eng, .rus {
           font-weight: 500;
@@ -36,12 +46,11 @@
         .answer {
           font-weight: 500;
         }
-
       }
 
       .form {
         height: 90%;
-        width: 90%;
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -58,7 +67,6 @@
         @include flex(column, center, flex-start, wrap);
         //background-color: red;
         @include text(24, 2.5, 400);
-
       }
     }
   }
@@ -72,6 +80,9 @@
   padding: 5px 10px;
   border: 0px solid black;
   border-radius: 10px;
+  @media screen and (max-width: $mediaWidth) {
+    width: 240px;
+  }
 }
 
 .textArea {
@@ -82,6 +93,9 @@
   border: 0px solid black;
   border-radius: 10px;
   resize: none;
+  @media screen and (max-width: $mediaWidth) {
+    width: 240px;
+  }
 }
 
 .button {
@@ -90,6 +104,9 @@
   border: 0px solid black;
   border-radius: 10px;
   cursor: pointer;
+  @media screen and (max-width: $mediaWidth) {
+    width: 260px;
+  }
 }
 
 a {
