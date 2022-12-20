@@ -1,6 +1,7 @@
 import React from 'react';
-import s from "../App.module.scss";
-import {FormType} from "./SendFormEng";
+import s from "../../App.module.scss";
+import {FormType} from "../../api/api";
+
 
 type MessageType = {
     info: FormType

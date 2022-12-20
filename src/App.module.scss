@@ -13,6 +13,7 @@ $mediaWidth: 1100px;
     @include flex(column, center, center, wrap);
 
 
+
     .letter {
       width: 700px;
       height: 500px;
@@ -28,23 +29,34 @@ $mediaWidth: 1100px;
 
       .lang {
         @include flex(column, flex-start, flex-start, wrap);
-        @include text(24, 2.5, 600);
+        @include text(18px, 54px, 600);
         @media screen and (max-width: $mediaWidth) {
           padding: 20px;
         }
 
         .eng, .rus {
-          font-weight: 500;
+          @include text(16px, 44px, 500);
+          &:hover {
+            transition: all 0.3s ease 0s;
+            text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em white;
+          }
         }
       }
 
       .behavior {
         height: 100%;
         @include flex(column, center, flex-start, wrap);
-        @include text(24, 2.5, 600);
+        @include text(18px, 54px, 600);
+        @media screen and (max-width: $mediaWidth) {
+          padding: 20px;
+        }
 
-        .answer {
-          font-weight: 500;
+        .yes, .no {
+          @include text(16px, 44px, 500);
+          &:hover {
+            transition: all 0.3s ease 0s;
+            text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em white;
+          }
         }
       }
 
@@ -59,6 +71,13 @@ $mediaWidth: 1100px;
         .underTree {
           @include flex(row, center, center, wrap);
           margin: 3px;
+        }
+      }
+
+      .sorry {
+        @include text(18px,28px,500);
+        @media screen and (max-width: $mediaWidth) {
+          padding: 20px;
         }
       }
 

@@ -1,15 +1,8 @@
 import React from 'react';
-import s from "../App.module.scss";
-import {setIn, useFormik} from "formik";
+import s from "../../App.module.scss";
+import {useFormik} from "formik";
 import {useNavigate} from "react-router-dom";
-
-export type FormType = {
-    name: string
-    email: string
-    age: string
-    underTree: string
-    text: string
-}
+import {FormType} from "../../api/api";
 
 export type FormikErrorType = {
     name?: string
@@ -32,7 +25,7 @@ const SendFormEng: React.FC<SendFormType> = ({setInfo}) => {
             name: '',
             email: '',
             age: '',
-            underTree: '',
+            underTree: 'yes',
             text: '',
         },
         validate: (values) => {
@@ -45,8 +38,8 @@ const SendFormEng: React.FC<SendFormType> = ({setInfo}) => {
 
             if (!values.name) {
                 errors.name = 'Name required'
-            } else if (values.name.length < 4) {
-                errors.name = "Name must be min 4 characters long.";
+            } else if (values.name.length < 3) {
+                errors.name = "Name must be min 3 characters long.";
             }
 
             if (!/^[0-9]/i.test(values.age)) {
@@ -65,9 +58,9 @@ const SendFormEng: React.FC<SendFormType> = ({setInfo}) => {
         onSubmit: values => {
             setInfo(values)
             navigate('/eng/letter/send')
+            console.log(values)
         },
     });
-
 
 
     return (

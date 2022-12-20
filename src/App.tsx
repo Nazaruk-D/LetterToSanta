@@ -2,11 +2,16 @@ import React, {useEffect, useState} from 'react';
 import s from './App.module.scss';
 import RoutesApp from "./Routes/RoutesApp";
 import {useNavigate} from "react-router-dom";
+import {useAppDispatch} from "./store/store";
+import {initializeApp} from "./store/letters-reducer";
 
 function App() {
+    const dispatch = useAppDispatch()
     const navigate = useNavigate()
 
-    useEffect(()=> {
+    useEffect(() => {
+        debugger
+        dispatch(initializeApp())
         navigate('/')
     }, [])
 

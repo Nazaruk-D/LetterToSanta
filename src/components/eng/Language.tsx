@@ -1,11 +1,11 @@
 import React from 'react';
-import s from "../App.module.scss";
+import s from "../../App.module.scss";
 import {NavLink} from "react-router-dom";
 
 const Language = () => {
     return (
         <div className={s.lang}>
-            <div>Choose your language / Выбири свой язык</div>
+            <div>Choose your language / Выбери свой язык</div>
             <NavLink to={"/eng"}>
                 <div className={s.eng}> English / Английский</div>
             </NavLink>

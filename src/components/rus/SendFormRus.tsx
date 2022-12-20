@@ -1,16 +1,10 @@
 import React from 'react';
-import s from "../App.module.scss";
-import {Field, useFormik} from "formik";
-import {FormikErrorType} from "./SendFormEng";
+import s from "../../App.module.scss";
+import {useFormik} from "formik";
+import {FormikErrorType} from "../eng/SendFormEng";
 import {useNavigate} from "react-router-dom";
+import {FormType} from "../../api/api";
 
-export type FormType = {
-    name: string
-    email: string
-    age: string
-    underTree: string
-    text: string
-}
 
 type SendFormType = {
     setInfo: (info: FormType) => void
@@ -25,7 +19,7 @@ const SendFormEng: React.FC<SendFormType> = ({setInfo}) => {
             name: '',
             email: '',
             age: '',
-            underTree: '',
+            underTree: 'yes',
             text: '',
         },
         validate: (values) => {
@@ -38,8 +32,8 @@ const SendFormEng: React.FC<SendFormType> = ({setInfo}) => {
 
             if (!values.name) {
                 errors.name = 'Введите своё имя'
-            } else if (values.name.length < 4) {
-                errors.name = "Имя должно содержать ее менее 4 букв";
+            } else if (values.name.length < 3) {
+                errors.name = "Имя должно содержать ее менее 3 букв";
             }
 
             if (!/^[0-9]/i.test(values.age)) {

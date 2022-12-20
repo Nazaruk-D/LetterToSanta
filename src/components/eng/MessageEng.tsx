@@ -1,12 +1,13 @@
 import React from 'react';
-import s from "../App.module.scss";
-import {FormType} from "./SendFormEng";
+import s from "../../App.module.scss";
+import {FormType} from "../../api/api";
+
 
 type MessageType = {
     info: FormType
 }
 
-const MessageEng: React.FC<MessageType> = ({info}) => {
+const   MessageEng: React.FC<MessageType> = ({info}) => {
     return (
         <div className={s.finalText}>
             <div>Your letter with the following wishes: <span style={{fontStyle: "italic"}}>"{info.text}"</span> to
