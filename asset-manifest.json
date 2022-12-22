@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/LetterToSanta/static/css/main.e25191c5.css",
-    "main.js": "/LetterToSanta/static/js/main.2c4b10e6.js",
+    "main.js": "/LetterToSanta/static/js/main.db9e373c.js",
     "static/js/787.28cb0dcd.chunk.js": "/LetterToSanta/static/js/787.28cb0dcd.chunk.js",
     "static/media/backGroundImage.jpg": "/LetterToSanta/static/media/backGroundImage.58598a73813b4e53ab8b.jpg",
     "index.html": "/LetterToSanta/index.html",
     "main.e25191c5.css.map": "/LetterToSanta/static/css/main.e25191c5.css.map",
-    "main.2c4b10e6.js.map": "/LetterToSanta/static/js/main.2c4b10e6.js.map",
+    "main.db9e373c.js.map": "/LetterToSanta/static/js/main.db9e373c.js.map",
     "787.28cb0dcd.chunk.js.map": "/LetterToSanta/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e25191c5.css",
-    "static/js/main.2c4b10e6.js"
+    "static/js/main.db9e373c.js"
   ]
 }
