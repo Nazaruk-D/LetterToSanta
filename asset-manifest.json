@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/LetterToSanta/static/css/main.7cc57666.css",
-    "main.js": "/LetterToSanta/static/js/main.ee96b549.js",
+    "main.css": "/LetterToSanta/static/css/main.e25191c5.css",
+    "main.js": "/LetterToSanta/static/js/main.2ac9fc3c.js",
     "static/js/787.28cb0dcd.chunk.js": "/LetterToSanta/static/js/787.28cb0dcd.chunk.js",
     "static/media/backGroundImage.jpg": "/LetterToSanta/static/media/backGroundImage.58598a73813b4e53ab8b.jpg",
     "index.html": "/LetterToSanta/index.html",
-    "main.7cc57666.css.map": "/LetterToSanta/static/css/main.7cc57666.css.map",
-    "main.ee96b549.js.map": "/LetterToSanta/static/js/main.ee96b549.js.map",
+    "main.e25191c5.css.map": "/LetterToSanta/static/css/main.e25191c5.css.map",
+    "main.2ac9fc3c.js.map": "/LetterToSanta/static/js/main.2ac9fc3c.js.map",
     "787.28cb0dcd.chunk.js.map": "/LetterToSanta/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7cc57666.css",
-    "static/js/main.ee96b549.js"
+    "static/css/main.e25191c5.css",
+    "static/js/main.2ac9fc3c.js"
   ]
 }
