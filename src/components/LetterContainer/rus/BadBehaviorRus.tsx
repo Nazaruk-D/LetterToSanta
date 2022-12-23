@@ -1,11 +1,15 @@
 import React from 'react';
-import s from '../../App.module.scss'
+import s from "../LetterContainer.module.scss";
+import MainMenuButton from "../../../common/components/MainMenuButton/MainMenuButton";
 
 
-const BadBehaviorRus= () => {
+const BadBehaviorRus = () => {
     return (
         <div className={s.sorry}>
             Извини... Я надеюсь, что ты будешь лучше себя вести в следующем году
+            <div className={s.button}>
+                <MainMenuButton/>
+            </div>
         </div>
     );
 };

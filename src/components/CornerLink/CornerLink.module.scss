@@ -1,0 +1,42 @@
+@import '../../common/style/sass/variables';
+
+.cornerContainer {
+  position: absolute;
+  top:0;
+  right: 0;
+  border: 50px solid transparent;
+  border-top: 50px solid #004f00;
+  border-right: 50px solid #004f00;
+  cursor: pointer;
+  @media screen and (max-width: $mediaWidth) {
+    border: 35px solid transparent;
+    border-top: 35px solid #004f00;
+    border-right: 35px solid #004f00;
+  }
+
+  .gitIcon {
+    width: 42px;
+    position: absolute;
+    top: -35px;
+    right: -35px;
+    transform: rotate(45deg);
+    @media screen and (max-width: $mediaWidth) {
+      width: 26px;
+      top: -22px;
+      right: -22px;
+    }
+  }
+
+  .tail {
+    width: 15px;
+    position: absolute;
+    top: -17px;
+    right: -9px;
+    transform: rotate(45deg);
+    @media screen and (max-width: $mediaWidth) {
+      width: 12px;
+      top: -13px;
+      right: -6px;
+    }
+  }
+}

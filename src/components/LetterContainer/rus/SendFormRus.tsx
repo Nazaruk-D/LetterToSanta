@@ -1,9 +1,12 @@
 import React from 'react';
-import s from "../../App.module.scss";
+import s from "../LetterContainer.module.scss";
 import {useFormik} from "formik";
 import {FormikErrorType} from "../eng/SendFormEng";
 import {useNavigate} from "react-router-dom";
-import {FormType} from "../../api/api";
+import {FormType} from "../../../api/api";
+import {BiMailSend} from "react-icons/bi";
+import {useAppDispatch} from "../../../redux/store";
+import {sendMessage} from "../../../redux/letters-reducer";
 
 
 type SendFormType = {
@@ -11,8 +14,8 @@ type SendFormType = {
 }
 
 const SendFormEng: React.FC<SendFormType> = ({setInfo}) => {
-
     const navigate = useNavigate()
+    const dispatch = useAppDispatch()
 
     const formik = useFormik({
         initialValues: {
@@ -20,7 +23,7 @@ const SendFormEng: React.FC<SendFormType> = ({setInfo}) => {
             email: '',
             age: '',
             underTree: 'yes',
-            text: '',
+            content: '',
         },
         validate: (values) => {
             const errors: FormikErrorType = {}
@@ -36,14 +39,14 @@ const SendFormEng: React.FC<SendFormType> = ({setInfo}) => {
                 errors.name = "Имя должно содержать ее менее 3 букв";
             }
 
-            if (!/^[0-9]/i.test(values.age)) {
+            if (!/^\d+$/i.test(values.age)) {
                 errors.age = 'Возраст указывается только цифрами'
             }
 
-            if (values.text.length < 0) {
-                errors.text = 'Введи своё сообщение'
-            } else if (values.text.length > 200) {
-                errors.text = 'Ваше пожелание должно быть до 200 символов'
+            if (values.content.length < 0) {
+                errors.content = 'Введи своё сообщение'
+            } else if (values.content.length > 200) {
+                errors.content = 'Ваше пожелание должно вместиться до 200 символов'
             }
 
             return errors
@@ -53,6 +56,11 @@ const SendFormEng: React.FC<SendFormType> = ({setInfo}) => {
             navigate('/rus/letter/send')
         },
     });
+
+
+    const onClickHandler = () => {
+        dispatch(sendMessage(formik.values))
+    }
 
     return (
         <form onSubmit={formik.handleSubmit} className={s.form}>
@@ -89,17 +97,19 @@ const SendFormEng: React.FC<SendFormType> = ({setInfo}) => {
             </div>
 
             <textarea
-                id="text"
-                name="text"
-                placeholder="Какой подарок ты хочешь, чтобы я подарил тебе на новый год?"
+                id={'content'}
+                placeholder="Какой подарок ты хочешь на новый год?"
+                autoComplete={"on"}
                 className={s.textArea}
-                onChange={formik.handleChange}
-                value={formik.values.text}
+                {...formik.getFieldProps('content')}
             />
-            {formik.touched.text && formik.errors.text && <div style={{color:"red"}}>{formik.errors.text}</div>}
-            {formik.touched.name && !formik.errors.name && formik.touched.email && !formik.errors.email &&
-                formik.touched.age && !formik.errors.age &&
-                <button type="submit" className={s.button}>Отправить</button>
+            {formik.touched.content && formik.errors.content &&
+                <div style={{color: "red"}}>{formik.errors.content}</div>}
+            {formik.touched.name && formik.touched.email && formik.touched.age &&
+                !formik.errors.name && !formik.errors.email && !formik.errors.age &&
+                <button type="submit" className={s.button} onClick={onClickHandler}>
+                    <BiMailSend style={{fontSize: "22px", position: "absolute", bottom: "3px"}}/>
+                </button>
             }
         </form>
     );

@@ -1,0 +1,135 @@
+@import '../../common/style/sass/mixins';
+@import '../../common/style/sass/variables';
+
+.letterContainer {
+  height: 100%;
+  @include flex(column, center, center, wrap);
+
+  .letter {
+    width: 700px;
+    height: 500px;
+    border: 1px solid #4b4b4b;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    position: relative;
+
+    @include flex(column, center, center, wrap);
+    @media screen and (max-width: $mediaWidth) {
+      width: 80%;
+      @include text(14px, 14px, 400);
+    }
+
+
+    .lang {
+      @include flex(column, flex-start, flex-start, wrap);
+      @include text(18px, 54px, 600);
+      @media screen and (max-width: $mediaWidth) {
+        padding: 20px;
+      }
+
+      .eng, .rus {
+        @include text(16px, 44px, 500);
+
+        &:hover {
+          transition: all 0.3s ease 0s;
+          text-shadow: 1px 1px 2px white, 0 0 1em white;
+        }
+      }
+    }
+
+    .behavior {
+      height: 100%;
+      @include flex(column, center, flex-start, wrap);
+      @include text(18px, 54px, 600);
+      @media screen and (max-width: $mediaWidth) {
+        padding: 20px;
+      }
+
+      .yes, .no {
+        @include text(16px, 44px, 500);
+
+        &:hover {
+          transition: all 0.3s ease 0s;
+          text-shadow: 1px 1px 2px white, 0 0 1em white;
+        }
+      }
+    }
+
+    .form {
+      height: 90%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .underTree {
+        @include flex(row, center, center, wrap);
+        margin: 3px;
+      }
+    }
+
+    .sorry {
+      @include text(18px, 28px, 500);
+      @media screen and (max-width: $mediaWidth) {
+        padding: 20px;
+      }
+      .button {
+        width: 100%;
+        margin-top: 20px;
+        @include flex(column, center, center, wrap);
+      }
+    }
+
+    .finalText {
+      padding: 40px;
+      @include flex(column, center, flex-start, wrap);
+      @include text(24, 2.5, 400);
+
+      .button {
+        width: 100%;
+        margin-top: 20px;
+        @include flex(column, center, center, wrap);
+      }
+    }
+  }
+}
+
+
+
+.input {
+  width: 300px;
+  height: 20px;
+  margin: 10px 0;
+  padding: 5px 10px;
+  border: 0 solid black;
+  border-radius: 10px;
+  @media screen and (max-width: $mediaWidth) {
+    width: 240px;
+  }
+}
+
+.textArea {
+  width: 300px;
+  height: 130px;
+  margin: 10px 0;
+  padding: 5px 10px;
+  border: 0 solid black;
+  border-radius: 10px;
+  resize: none;
+  @media screen and (max-width: $mediaWidth) {
+    width: 240px;
+  }
+}
+
+.button {
+  width: 320px;
+  height: 40px;
+  border: 0 solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  @media screen and (max-width: $mediaWidth) {
+    width: 260px;
+  }
+}

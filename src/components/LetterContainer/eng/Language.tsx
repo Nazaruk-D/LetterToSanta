@@ -1,6 +1,7 @@
 import React from 'react';
-import s from "../../App.module.scss";
+import s from "../LetterContainer.module.scss";
 import {NavLink} from "react-router-dom";
+
 
 const Language = () => {
     return (

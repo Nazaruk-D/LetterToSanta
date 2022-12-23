@@ -1,0 +1,12 @@
+@import '../../style/sass/mixins';
+
+.mainMenuButton{
+  width: 160px;
+  height: 45px;
+  //background-color: red;
+  cursor: pointer;
+  border: 0px solid black;
+  border-radius: 10px;
+  @include flex(row, center,center, nowrap);
+
+}

@@ -1,11 +1,9 @@
 import React from 'react';
-import s from "../../App.module.scss";
+import s from "../LetterContainer.module.scss";
 import {NavLink} from "react-router-dom";
 
-type LetterEngType = {}
 
-
-const LetterEng: React.FC<LetterEngType> = ({}) => {
+const LetterEng = () => {
     return (
            <div className={s.behavior}>
                 <div>Ты хорошо себя вёл/вела в 2022?</div>
