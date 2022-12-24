@@ -1,19 +1,7 @@
-import {initializeApp, InitStateType, lettersReducer, setIsLoggedInAC} from "./letters-reducer";
+import {initializeApp, InitStateType, lettersReducer, sendMessage, setIsLoggedInAC} from "./letters-reducer";
 
-it('isInitialized must be change', () => {
 
-    const db: InitStateType = {
-        letters: [],
-        arrLength: null,
-        isInitialized: false
-    }
-
-    const endState = setIsLoggedInAC(db)
-
-    expect(endState.payload.isInitialized).toBe(true);
-});
-
-it('isInitializeApp must be change', () => {
+it('arrLength must be change', () => {
 
     const db: InitStateType = {
         letters: [],
@@ -24,4 +12,28 @@ it('isInitializeApp must be change', () => {
     const endState = lettersReducer(db, initializeApp.fulfilled({arrLength:3},"requestId"))
 
     expect(endState.arrLength).toBe(3);
+});
+
+it('Array after add new letter must be increment', () => {
+
+    const db: InitStateType = {
+        letters: [],
+        arrLength: null,
+        isInitialized: false
+    }
+
+    const newLetter = {
+        "id": "dea322b0-8293-11ed-8738-a14320bec1be",
+        "age": "17",
+        "email": "eznak06@mail.ru",
+        "name": "Kate",
+        "content": "Nutella ",
+        "underTree": "yes"
+    }
+
+
+    const endState = lettersReducer(db, sendMessage.fulfilled({param: newLetter}, "requestId", newLetter))
+
+    expect(endState.letters.length).toBe(1);
+    expect(endState.letters[0].age).toBe("17");
 });
