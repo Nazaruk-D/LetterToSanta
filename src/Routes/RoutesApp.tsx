@@ -13,7 +13,6 @@ import {FormType} from "../api/api";
 
 
 const RoutesApp = () => {
-
     const [info, setInfo] = useState<FormType>({
         name: "",
         email: "",

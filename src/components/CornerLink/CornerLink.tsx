@@ -3,8 +3,8 @@ import s from "./CornerLink.module.scss";
 import gitIcon from "../../assets/png/gitIcon.png"
 import tail from "../../assets/png/xvost.png"
 
-const CornerLink = () => {
 
+const CornerLink = () => {
     const [state, setState] = useState({})
 
     const onMouseEnterHandler = () => {

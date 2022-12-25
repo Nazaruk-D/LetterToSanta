@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import s from './App.module.scss';
+import s from './App.module.scss'
 import {useNavigate} from "react-router-dom";
 import Snowfall from 'react-snowfall'
 import LetterContainer from "../components/LetterContainer/LetterContainer";

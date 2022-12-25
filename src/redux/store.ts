@@ -1,6 +1,6 @@
-import {combineReducers, AnyAction} from 'redux';
+import {AnyAction, combineReducers} from 'redux';
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
-import thunk, {ThunkAction, ThunkDispatch} from "redux-thunk";
+import thunk, {ThunkDispatch} from "redux-thunk";
 import {configureStore} from "@reduxjs/toolkit";
 import {lettersReducer} from "./letters-reducer";
 

@@ -14,7 +14,7 @@ it('arrLength must be change', () => {
     expect(endState.arrLength).toBe(3);
 });
 
-it('Array after add new letter must be increment', () => {
+it('The array after adding a new letter should increase', () => {
 
     const db: InitStateType = {
         letters: [],
@@ -27,7 +27,7 @@ it('Array after add new letter must be increment', () => {
         "age": "17",
         "email": "eznak06@mail.ru",
         "name": "Kate",
-        "content": "Nutella ",
+        "content": "Nutella",
         "underTree": "yes"
     }
 
