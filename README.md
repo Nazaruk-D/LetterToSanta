@@ -35,8 +35,8 @@ ___
 <br/>
 <br/>
 
-
-
+[//]: # (___)
+<br/>
 The following libraries are installed in this project:
 
 
@@ -65,7 +65,7 @@ The following libraries are installed in this project:
 - **typescript**
 
 - **sass**
-
+  <br/><br/>
 
 
 ## How to start a project
