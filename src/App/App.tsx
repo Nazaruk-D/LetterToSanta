@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
-import s from './App.module.scss'
+import s from './App.module.scss';
 import {useNavigate} from "react-router-dom";
-import Snowfall from 'react-snowfall'
+import Snowfall from 'react-snowfall';
 import LetterContainer from "../components/LetterContainer/LetterContainer";
 import {useAppDispatch} from "../redux/store";
 import {initializeApp} from "../redux/letters-reducer";
